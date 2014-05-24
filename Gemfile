@@ -19,6 +19,7 @@ gem 'rails_12factor'
 gem 'active_model_serializers'
 gem 'devise'
 gem 'rails_admin'
+gem 'cancan'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

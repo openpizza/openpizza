@@ -9,10 +9,32 @@
   <%= link_to current_user.email, edit_user_registration_path %>
 </li>
 <li>
-  <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+    <div class="form-group navbar-form">
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => 'btn btn-info' %>
+    </div>
 </li>
 <%- else %>
-<li>
-  <%= link_to 'Login', new_user_session_path %>
+    <li>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'navbar-form'}) do |f| %>
+
+    <div class="form-group">
+        <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Email" %>
+    </div>
+    <div class="form-group">
+        <%= f.password_field :password, autocomplete: "off", :class => "input-medium form-control", :placeholder => "Password" %>
+    </div>
+    <% if devise_mapping.rememberable? -%>
+    <div class="checkbox"><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+    <% end -%>
+    <div class="form-group">
+        <div><%= f.submit :class => "btn btn-info", :value => "Sign in" %></div>
+    </div>
+    <div class="form-group">
+        <div><%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-info' %></div>
+    </div>
+    <% end %>
 </li>
+
 <%- end %>
+
+

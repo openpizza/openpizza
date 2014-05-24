@@ -284,7 +284,6 @@ a {
 }
 a:hover,
 a:focus {
-  color: #232301;
   text-decoration: underline;
 }
 a:focus {
@@ -5808,7 +5807,7 @@ body {
 	margin-top: 50px;
 	display: none;
 	overflow-x: hidden;
-	overflow-y: scroll;
+	overflow-y: auto;
 	padding-right: 10px;
 	height: 500px;
 }

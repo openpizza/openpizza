@@ -12,5 +12,5 @@
 //    });
 //}]);
 angular.module('pizza.shops').factory('Shops', ['$resource', function($resource) {
-    return $resource('Shops/:serviceId/:issue');
+    return $resource('http://openpizza.apiary-mock.com/shops?:postcode');
 }]);

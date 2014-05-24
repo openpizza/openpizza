@@ -10,13 +10,6 @@ nav.navbar.navbar-fixed-top.navbar-default
         span.icon-bar
 	  = link_to 'Open-Pizza', root_path, class: 'navbar-brand'
     .collapse.navbar-collapse
-	  form.navbar-form.navbar-right(role="form")
-		div.form-group
-		  input.form-control type="text" placeholder="Email"
-		div.form-group
-		  input.form-control type="password" placeholder="Password"
-		button.btn.btn-info(type="submit")Sign in
-		button.btn.btn-info(type="submit")Sign up
       ul.nav.navbar-nav
         == render 'layouts/navigation_links_left'
       ul.nav.navbar-nav.navbar-right

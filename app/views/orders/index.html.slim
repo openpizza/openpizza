@@ -1,0 +1,29 @@
+h1 Listing orders
+
+table
+  thead
+    tr
+      th Uuid
+      th Shop
+      th User
+      th Address
+      th Estimated participants
+      th
+      th
+      th
+
+  tbody
+    - @orders.each do |order|
+      tr
+        td = order.uuid
+        td = order.shop_id
+        td = order.user_id
+        td = order.address_id
+        td = order.estimated_participants
+        td = link_to 'Show', order
+        td = link_to 'Edit', edit_order_path(order)
+        td = link_to 'Destroy', order, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Order', new_order_path

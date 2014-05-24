@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Uuid:
+  = @order.uuid
+p
+  strong Shop:
+  = @order.shop_id
+p
+  strong User:
+  = @order.user_id
+p
+  strong Address:
+  = @order.address_id
+p
+  strong Estimated participants:
+  = @order.estimated_participants
+
+= link_to 'Edit', edit_order_path(@order)
+'|
+= link_to 'Back', orders_path

@@ -3,20 +3,22 @@ h1 Listing shops
 table
   thead
     tr
-      th Address
-      th User
+      th Name
+      th Rating
       th
-      th
-      th
+      - if user_signed_in? && current_user.admin?
+        th
+        th
 
   tbody
     - @shops.each do |shop|
       tr
-        td = shop.address_id
-        td = shop.user_id
+        td = shop.address.name
+        td = shop.rating
         td = link_to 'Show', shop
-        td = link_to 'Edit', edit_shop_path(shop)
-        td = link_to 'Destroy', shop, data: {:confirm => 'Are you sure?'}, :method => :delete
+        - if user_signed_in? && user.admin?
+          td = link_to 'Edit', edit_shop_path(shop)
+          td = link_to 'Destroy', shop, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 

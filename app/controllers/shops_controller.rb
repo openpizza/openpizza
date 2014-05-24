@@ -10,7 +10,7 @@ class ShopsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { render @shops }
+      format.html { render action: 'index' }
       format.json { render json: @shops, each_serializer: ShopListSerializer }
     end
   end
@@ -19,7 +19,7 @@ class ShopsController < ApplicationController
   # GET /shops/1.json
   def show
     respond_to do |format|
-      format.html { render @shop }
+      format.html { render action: 'show' }
       format.json { render json: @shop }
     end
   end

@@ -8,7 +8,36 @@ describe Order, :type => :model do
     expect(order).to respond_to(:address)
     expect(order).to respond_to(:estimated_participants)
     expect(order).to respond_to(:uuid)
-    #expect(order).to respond_to(:items)
     expect(order).to be_valid
+  end
+
+  it "is invalid if it does not have a shop" do
+    order = FactoryGirl.create(:order)
+    order.shop = nil
+    expect(order).to_not be_valid
+  end
+
+  it "is invalid if it does not have a user" do
+    order = FactoryGirl.create(:order)
+    order.user = nil
+    expect(order).to_not be_valid
+  end
+
+  it "is invalid if it does not have an address" do
+    order = FactoryGirl.create(:order)
+    order.address = nil
+    expect(order).to_not be_valid
+  end
+
+  it "is invalid if it does not have an estimated number of participants" do
+    order = FactoryGirl.create(:order)
+    order.estimated_participants = nil
+    expect(order).to_not be_valid
+  end
+
+  it "is invalid if it does not have a uuid" do
+    order = FactoryGirl.create(:order)
+    order.uuid = nil
+    expect(order).to_not be_valid
   end
 end

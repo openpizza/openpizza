@@ -1,0 +1,25 @@
+h1 Listing sub_orders
+
+table
+  thead
+    tr
+      th Nickname
+      th Order
+      th Comment
+      th
+      th
+      th
+
+  tbody
+    - @sub_orders.each do |sub_order|
+      tr
+        td = sub_order.nickname
+        td = sub_order.order_id
+        td = sub_order.comment
+        td = link_to 'Show', sub_order
+        td = link_to 'Edit', edit_sub_order_path(sub_order)
+        td = link_to 'Destroy', sub_order, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Sub order', new_sub_order_path

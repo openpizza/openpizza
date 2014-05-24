@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Nickname:
+  = @sub_order.nickname
+p
+  strong Order:
+  = @sub_order.order_id
+p
+  strong Comment:
+  = @sub_order.comment
+
+= link_to 'Edit', edit_sub_order_path(@sub_order)
+'|
+= link_to 'Back', sub_orders_path

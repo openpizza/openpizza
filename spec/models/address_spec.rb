@@ -7,6 +7,7 @@ describe Address, :type => :model do
     expect(address).to respond_to(:street)
     expect(address).to respond_to(:postcode)
     expect(address).to respond_to(:city)
+    expect(address).to be_valid
   end
 
   it "is invalid if name field is empty" do

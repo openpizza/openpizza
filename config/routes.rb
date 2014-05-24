@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :product_categories
 
-  resources :shops
+  resources :shops, except: :destroy
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users

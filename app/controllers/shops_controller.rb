@@ -5,11 +5,23 @@ class ShopsController < ApplicationController
   # GET /shops.json
   def index
     @shops = Shop.all
+    if params.has_key? :postcode
+      @shops = Shop.by_postcode(params[:postcode])
+    end
+
+    respond_to do |format|
+      format.html { render @shops }
+      format.json { render json: @shops, each_serializer: ShopListSerializer }
+    end
   end
 
   # GET /shops/1
   # GET /shops/1.json
   def show
+    respond_to do |format|
+      format.html { render @shop }
+      format.json { render json: @shop }
+    end
   end
 
   # GET /shops/new
@@ -48,16 +60,6 @@ class ShopsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @shop.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /shops/1
-  # DELETE /shops/1.json
-  def destroy
-    @shop.destroy
-    respond_to do |format|
-      format.html { redirect_to shops_url, notice: 'Shop was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

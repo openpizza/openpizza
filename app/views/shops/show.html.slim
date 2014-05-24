@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Address:
+  = @shop.address_id
+p
+  strong User:
+  = @shop.user_id
+
+= link_to 'Edit', edit_shop_path(@shop)
+'|
+= link_to 'Back', shops_path

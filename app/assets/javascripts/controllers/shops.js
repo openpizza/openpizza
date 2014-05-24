@@ -10,13 +10,9 @@ angular.module('pizza.shops').controller('ShopController', ['$scope', '$location
 
     $scope.find = function() {
 
-        var shop = {
-            id: 0,
-            name: '',
-            address: '',
-            postcode: $scope.postcode,
-            city: ''
-        };
+        Shops.get({}, function(res) {
+            $scope.shops = res;
+        });
 
         $scope.shops = [
             {
@@ -38,29 +34,18 @@ angular.module('pizza.shops').controller('ShopController', ['$scope', '$location
         ];
 
 
-            Shops.get({serviceId: 123, issue: 'products'}, function(res) {
-                res.foo += '!';
-                res.$save();
-            });
-
-            Shops.get({}, function(res) {
-                res.foo += '!';
-                res.$save();
-            });
+//            Shops.get({serviceId: 123, issue: 'products'}, function(res) {
+//                res.foo += '!';
+//                res.$save();
+//            });
+//
+//            Shops.get({}, function(res) {
+//                res.foo += '!';
+//                res.$save();
+//            });
 
 
     };
 
-    $scope.create = function() {
-
-        var project = new Projects({
-            title: this.title,
-            end: this.end
-        });
-        project.$save(function(response) {
-            //$location.path('projects/' + response._id);
-            $scope.find();
-        });
-    };
 
 }]);

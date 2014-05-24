@@ -4,10 +4,13 @@
 'use strict';
 
 //Shops service used for shops REST endpoint
+//angular.module('pizza.shops').factory('Shops', ['$resource', function($resource) {
+//    return $resource('Shops/:serviceId/products', {
+//        serviceId: '@_id'
+//    }, {
+//
+//    });
+//}]);
 angular.module('pizza.shops').factory('Shops', ['$resource', function($resource) {
-    return $resource('Shops/:serviceId/products', {
-        serviceId: '@_id'
-    }, {
-
-    });
+    return $resource('Shops/:serviceId/:issue');
 }]);

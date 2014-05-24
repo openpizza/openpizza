@@ -1,4 +1,4 @@
-<div class="start-page" ng-controller="ShopController">
+<div class="start-page" data-ng-controller="ShopController">
     <div class="container" id="main">
         <div class="start-page-container-search">
           <div class="row">
@@ -23,29 +23,15 @@
                     <table>
                         <tr data-ng-repeat="shop in shops">
                             <td class="img"><img src="../assets/default.jpg"></td>
-                            <td class="text"><h2>{{shop.name}}</h2><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i></td>
+                            <td class="text"><h2>{{shop.name}}</h2>
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                            </td>
                             <td class="arrow"><a href="#dddd"><i class="glyphicon glyphicon-chevron-right"></i></a></td>
                         </tr>
-                       <!-- <tr>
-                            <td class="img"><img src="../assets/default.jpg"></td>
-                            <td class="text"><h2>Pizza Hans</h2><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i></td>
-                            <td class="arrow"><a href="#dddd"><i class="glyphicon glyphicon-chevron-right"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td class="img"><img src="../assets/default.jpg"></td>
-                            <td class="text"><h2>Pizza Hans</h2><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i></td>
-                            <td class="arrow"><a href="#dddd"><i class="glyphicon glyphicon-chevron-right"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td class="img"><img src="../assets/default.jpg"></td>
-                            <td class="text"><h2>Pizza Hans</h2><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i></td>
-                            <td class="arrow"><a href="#dddd"><i class="glyphicon glyphicon-chevron-right"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td class="img"><img src="../assets/default.jpg"></td>
-                            <td class="text"><h2>Pizza Hans</h2><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i></td>
-                            <td class="arrow"><a href="#dddd"><i class="glyphicon glyphicon-chevron-right"></i></a></td>
-                        </tr>-->
                     </table>
                 </div>
             </div>

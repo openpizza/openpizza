@@ -5,6 +5,8 @@ describe Shop, :type => :model do
     shop = FactoryGirl.create(:shop)
     expect(shop).to respond_to(:address)
     expect(shop).to respond_to(:user)
+    expect(shop).to respond_to(:products)
+    expect(shop).to respond_to(:product_categories)
     expect(shop).to be_valid
   end
 

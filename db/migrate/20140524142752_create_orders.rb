@@ -9,5 +9,7 @@ class CreateOrders < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :orders, :uuid, unique: true
   end
 end

@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @product_category.name
+p
+  strong Shop:
+  = @product_category.shop_id
+
+= link_to 'Edit', edit_product_category_path(@product_category)
+'|
+= link_to 'Back', product_categories_path

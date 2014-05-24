@@ -23,12 +23,6 @@ describe Order, :type => :model do
     expect(order).to_not be_valid
   end
 
-  it "is invalid if it does not have an address" do
-    order = FactoryGirl.create(:order)
-    order.address = nil
-    expect(order).to_not be_valid
-  end
-
   it "is invalid if it does not have an estimated number of participants" do
     order = FactoryGirl.create(:order)
     order.estimated_participants = nil

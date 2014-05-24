@@ -4,6 +4,7 @@ class ShopsController < ApplicationController
   # GET /shops
   # GET /shops.json
   def index
+    authorize! :read, Shop
     @shops = Shop.all
     if params.has_key? :postcode
       @shops = Shop.by_postcode(params[:postcode])
@@ -18,6 +19,7 @@ class ShopsController < ApplicationController
   # GET /shops/1
   # GET /shops/1.json
   def show
+    authorize! :read, Shop
     respond_to do |format|
       format.html { render action: 'show' }
       format.json { render json: @shop }
@@ -26,16 +28,19 @@ class ShopsController < ApplicationController
 
   # GET /shops/new
   def new
+    authorize! :create, Shop
     @shop = Shop.new
   end
 
   # GET /shops/1/edit
   def edit
+    authorize! :update, @shop
   end
 
   # POST /shops
   # POST /shops.json
   def create
+    authorize! :create, @shop
     @shop = Shop.new(shop_params)
 
     respond_to do |format|
@@ -52,6 +57,7 @@ class ShopsController < ApplicationController
   # PATCH/PUT /shops/1
   # PATCH/PUT /shops/1.json
   def update
+    authorize! :update, @shop
     respond_to do |format|
       if @shop.update(shop_params)
         format.html { redirect_to @shop, notice: 'Shop was successfully updated.' }

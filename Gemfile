@@ -20,6 +20,7 @@ gem 'active_model_serializers'
 gem 'devise'
 gem 'rails_admin'
 gem 'cancan'
+gem 'angularjs-rails'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

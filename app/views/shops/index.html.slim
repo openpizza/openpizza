@@ -16,7 +16,7 @@ table
         td = shop.address.name
         td = shop.rating
         td = link_to 'Show', shop
-        - if user_signed_in? && user.admin?
+        - if user_signed_in? && current_user.admin?
           td = link_to 'Edit', edit_shop_path(shop)
           td = link_to 'Destroy', shop, data: {:confirm => 'Are you sure?'}, :method => :delete
 

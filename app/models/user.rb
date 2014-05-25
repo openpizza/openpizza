@@ -6,4 +6,9 @@ class User < ActiveRecord::Base
   
   has_and_belongs_to_many :addresses
   has_many :orders
+  has_one :shop
+
+  def shop_owner?
+    !shop.nil?
+  end
 end

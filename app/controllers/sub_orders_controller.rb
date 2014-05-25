@@ -6,6 +6,10 @@ class SubOrdersController < ApplicationController
   # GET /orders/:uuid/items.json
   def index
     @sub_orders = SubOrder.of_order(params[:order_id])
+    respond_to do |format|
+      format.html { render action: 'show' }
+      format.json { render json: @sub_orders }
+    end
   end
 
   # GET /orders/:uuid/items/1

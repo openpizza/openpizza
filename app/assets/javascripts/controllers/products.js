@@ -3,24 +3,27 @@
  */
 'use strict';
 
-angular.module('pizza').controller('ProductController', ['$scope', '$location', '$resource', 'Shops', 'Products', 'Global', function ($scope, $location, $resource, Shops, Products, Global) {
+angular.module('pizza').controller('ProductController', ['$scope', '$location', '$routeParams', '$resource', 'Shops', 'Products', 'Global', function ($scope, $location, $routeParams, $resource, Shops, Products, Global) {
 
-    $scope.products = [{
-        name: 'Pizza Salami'
-    }]
+    $scope.products = [];
+    $scope.shop = {};
 
-//    $scope.getShop = function(shopId) {
-//
-//        Shops.get({id: shopId}, function(res) {
-//            $scope.shop = res;
-//        });
-//    };
+    $scope.getShop = function() {
 
-    $scope.getProducts = function(shopId) {
-        Products.query({id: shopId}, function(res) {
-            $scope.products = res;
+        console.log($routeParams);
+
+        var shopId = 1;
+
+        Shops.get({shopId: shopId}, function(res) {
+            $scope.shop = res;
         });
     };
+
+//    $scope.getProducts = function(shopId) {
+//        Products.query({id: shopId}, function(res) {
+//            $scope.products = res;
+//        });
+//    };
 
 //    $scope.select = function(id) {
 //        $scope.global.shopId = id;

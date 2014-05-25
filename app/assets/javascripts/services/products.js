@@ -4,5 +4,5 @@
 'use strict';
 
 angular.module('pizza').factory('Products', ['$resource', function($resource) {
-    return $resource('http://openpizza.apiary-mock.com/shops?:postcode');
+    return $resource('http://openpizza.apiary-mock.com/shops/:shopId');
 }]);

@@ -14,8 +14,8 @@
       h4.text-center
         p
           strong Share this link with your mates
-          = text_field_tag :link, root_url[0..-2] + new_order_item_path(@order.uuid), class: 'form-control', disabled: true
-          = image_tag "https://chart.googleapis.com/chart?cht=qr&chl=#{"openpizza" + root_url[4..-2] + order_path(@order.uuid)}&choe=UTF-8&chs=300x300"
+          = text_field_tag :link, root_url[0..-2] + new_order_item_path(@order.uuid), class: 'form-control', onClick: "this.setSelectionRange(0, this.value.length)", style: 'background: rgb(197, 197, 197);'
+          = image_tag "https://chart.googleapis.com/chart?cht=qr&chl=#{"openpizza" + root_url[4..-2] + order_path(@order.uuid)}&choe=UTF-8&chs=300x300", style: 'margin-top: 10px;'
         p
           strong You are ordering at
           p= @order.shop.address.name

@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   resources :items
 
-  resources :sub_orders
-
-  resources :orders
+  resources :orders do
+    resources :items, controller: 'sub_orders'
+  end
 
   resources :products
 

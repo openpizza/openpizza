@@ -16,10 +16,10 @@ table
         td = sub_order.nickname
         td = sub_order.order_id
         td = sub_order.comment
-        td = link_to 'Show', sub_order
-        td = link_to 'Edit', edit_sub_order_path(sub_order)
-        td = link_to 'Destroy', sub_order, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = link_to 'Show', new_order_item_path
+        td = link_to 'Edit', edit_order_item_path(sub_order.order, sub_order)
+        td = link_to 'Destroy', order_item_path(sub_order.order, sub_order), data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Sub order', new_sub_order_path
+= link_to 'New Sub order', new_order_item_path

@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 20140524145539) do
     t.datetime "updated_at"
   end
 
+  add_index "orders", ["uuid"], name: "index_orders_on_uuid", unique: true, using: :btree
+
   create_table "product_categories", force: true do |t|
     t.string   "name"
     t.integer  "shop_id"

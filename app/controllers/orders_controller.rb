@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :edit, :destroy]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   # GET /orders
@@ -25,6 +26,7 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
+    @order.user = current_user
 
     respond_to do |format|
       if @order.save
@@ -69,6 +71,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:uuid, :shop_id, :user_id, :address_id, :estimated_participants)
+      params.require(:order).permit(:shop_id, :estimated_participants)
     end
 end

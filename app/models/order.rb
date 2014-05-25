@@ -7,13 +7,13 @@ class Order < ActiveRecord::Base
   belongs_to :address
   has_many :sub_orders
 
-  validates :shop, :user, :uuid, :estimated_participants, presence: true
+  validates :shop, :user, :uuid, presence: true
 
   def set_uuid
-    uuid = SecureRandom.uuid
+    self.uuid = SecureRandom.uuid
   end
 
-  def find(input)
+  def self.find(input)
     shop = find_by_uuid(input)
     if shop.nil?
       raise ActiveRecord::RecordNotFound

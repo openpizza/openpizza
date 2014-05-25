@@ -1,5 +1,21 @@
 h1 New order
 
-== render 'form'
+= form_for @order do |f|
+  - if @order.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
+      ul
+        - @order.errors.full_messages.each do |message|
+          li = message
+
+  - if @order.shop
+    .field
+      p= @order.shop.address.name
+  .field
+    p = current_user.addresses.first.name
+  .field
+    = f.label :estimated_participants
+    = f.number_field :estimated_participants
+  .actions = f.submit 'Save'
 
 = link_to 'Back', orders_path

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :orders do
     resources :items, controller: 'sub_orders'
+    post '/items/:nickname', to: 'sub_orders#create_with_nickname', as: 'create_with_nickname'
   end
 
   resources :products

@@ -20,12 +20,6 @@ class SubOrder < ActiveRecord::Base
     suborders
   end
 
-  def products
-    items.map do |item|
-      item
-    end
-  end
-
   def price
     items.sum(:price)
   end

@@ -1,7 +1,7 @@
 class ProductSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :price, :product_category
+  attributes :id, :name, :description, :price, :category
 
-  def product_category
+  def category
     object.product_category.name
   end
 

@@ -6,8 +6,8 @@
 angular.module('pizza').controller('OrderController', ['$scope', '$location', '$routeParams', '$resource', 'Shops', 'Order', 'Products', 'Global', function ($scope, $location, $routeParams, $resource, Shops, Order, Products, Global) {
 
     $scope.shop = {};
-    $scope.uuid = '717348c2-493f-4f07-8dcb-f38e2e1ce904';
-    $scope.nickname = 'TestUser';
+    $scope.uuid = 'test';
+    $scope.nickname = '';
     $scope.currentOrder = {
         nickname: '',
         products: [],
@@ -42,9 +42,9 @@ angular.module('pizza').controller('OrderController', ['$scope', '$location', '$
         $scope.currentOrder.price += product.price;
     };
 
-    $scope.send = function() {
-        console.log($scope.uuid);
-        Order.save({id: $scope.uuid, nickname: $scope.nickname}, $scope.currentOrder);
+    $scope.send = function(uuid) {
+        console.log(uuid);
+        Order.save({id: uuid, nickname: $scope.nickname}, $scope.currentOrder);
     };
 
 //    $scope.getProducts = function(shopId) {

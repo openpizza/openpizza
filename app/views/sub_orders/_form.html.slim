@@ -18,11 +18,9 @@
 				span.badge.pull-right
 	  				| {{product.quantity}}
   .field
-	= hidden_field_tag :uuid, @sub_order.order.uuid, 'data-ng-model' => 'uuid'
-  .field
 	= f.label :comment
 	= f.text_area :comment, class: 'form-control'
   .field
 	//.actions = f.submit 'Submit your items to host', class: 'btn btn-success form-control'
-	a.btn.btn-success.form-control(data-ng-click="send()")
+	a.btn.btn-success.form-control(data-ng-click="send('#{@sub_order.order.uuid}')")
 		| 'Submit your items to host'

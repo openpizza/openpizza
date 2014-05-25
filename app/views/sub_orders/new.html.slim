@@ -1,7 +1,7 @@
-.container
-  .row
-    .col-md-9
-		section(data-ng-controller="OrderController" data-ng-init="getShop(#{@sub_order.order.shop_id})")
+section(data-ng-controller="OrderController" data-ng-init="getShop(#{@sub_order.order.shop_id})")
+	.container
+	  .row
+		.col-md-9
 		  h1
 			  | {{shop.name}}
 		  .pre-scrollable
@@ -10,7 +10,7 @@
 					  tr
 						  th.col-md-3 Kategorie
 						  th.col-md-4 Produkt
-						  th.col-md-1 Menge
+						  th.col-md-1
 				  tbody(data-ng-repeat="product in shop.products")
 					  tr
 						  td.col-md-3
@@ -18,6 +18,14 @@
 						  td.col-md-4
 							  | {{product.name}}
 						  td.col-md-1
-							  input.form-control.input-small(type="number" min="0" placeholder=0)
-    .col-md-3
-      == render 'form'
+							  a.btn(data-ng-click="add(product)")
+								  i.glyphicon.glyphicon-plus
+							  a.btn(data-ng-click="add()")
+								  i.glyphicon.glyphicon-minus
+
+		.col-md-3
+		  == render 'form'
+
+		  div(data-ng-repeat="product in currentOrder.products")
+			.alert.alert-info
+				| {{product.name}}

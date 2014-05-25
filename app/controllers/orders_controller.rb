@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
+  # before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   # GET /orders
@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
-    @order.user = current_user
+    @order.user = User.first
     @order.shop = Shop.where(id: params[:shop]).first
 
     respond_to do |format|

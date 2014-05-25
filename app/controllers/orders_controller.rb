@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
+  # before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   # GET /orders
@@ -33,12 +33,15 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
-    @order.user = current_user
+    @order.user = User.first
+    if params[:order][:shop]
+      params[:shop] = params[:order][:shop]
+    end
     @order.shop = Shop.where(id: params[:shop]).first
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        format.html { redirect_to order_path(@order.uuid), notice: 'Order was successfully created.' }
         format.json { render json: @order, status: :created, location: @order }
       else
         format.html { render :new }

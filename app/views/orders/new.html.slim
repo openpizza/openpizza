@@ -1,21 +1,27 @@
-h1 New order
+.container
+  .row
+    .col-md-4.col-md-offset-4
+      .text-center
+        = form_for @order do |f|
+          - if @order.errors.any?
+            #error_explanation
+              h2 = "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
+              ul
+                - @order.errors.full_messages.each do |message|
+                  li = message
 
-= form_for @order do |f|
-  - if @order.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
-      ul
-        - @order.errors.full_messages.each do |message|
-          li = message
-
-  - if @order.shop
-    .field
-      p= @order.shop.address.name
-  .field
-    p = current_user.addresses.first.name
-  .field
-    = f.label :estimated_participants
-    = f.number_field :estimated_participants
-  .actions = f.submit 'Save'
-
-= link_to 'Back', orders_path
+          - if @order.shop
+            .field
+              h3
+                strong You are about to order at
+              h3= @order.shop.address.name
+              = f.hidden_field :shop, value: @order.shop.id
+          .field
+            h3
+              strong Delivery address
+            h3 = current_user.addresses.first.name
+            h3 = current_user.addresses.first.street
+            h3 = "#{current_user.addresses.first.postcode}, #{current_user.addresses.first.city}"
+          .field
+            p= f.number_field :estimated_participants, class: 'form-control', placeholder: 'Estimated participants'
+          .actions = f.submit 'START ORDER', class: 'btn btn-success form-control'

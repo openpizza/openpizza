@@ -1,4 +1,5 @@
 class SubOrdersController < ApplicationController
+  before_action :set_order
   before_action :set_sub_order, only: [:show, :edit, :update, :destroy]
 
   # GET /orders/:uuid/items
@@ -32,11 +33,41 @@ class SubOrdersController < ApplicationController
   # POST /orders/:uuid/items.json
   def create
     @sub_order = SubOrder.new(sub_order_params)
+    @sub_order.order = @order
 
     respond_to do |format|
       if @sub_order.save
         format.html { redirect_to @sub_order, notice: 'Sub order was successfully created.' }
         format.json { render :show, status: :created, location: @sub_order }
+      else
+        format.html { render :new }
+        format.json { render json: @sub_order.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def create_with_nickname
+    @sub_order = SubOrder.find_or_create_by(order: @order, nickname: params[:nickname])
+    @sub_order.comment = params[:comment]
+
+    respond_to do |format|
+      if @sub_order.save
+        url = order_item_path(@order.uuid, @sub_order)
+        params[:products].each do |product_json|
+          product = Product.find_by(id: product_json[:id])
+
+          if product.nil?
+            return render :json => {:error => "Product doesn't exist"}.to_json, :status => :unprocessable_entity
+          end
+
+          item = @sub_order.items.find_or_create_by(product_id: product.id)
+          item.update(price: product.price, quantity: product_json[:quantity])
+        end
+
+        logger.debug @sub_order.items.count
+
+        format.html { redirect_to url, notice: 'Sub order was successfully created.' }
+        format.json { render json: @sub_order, status: :created, location: url }
       else
         format.html { render :new }
         format.json { render json: @sub_order.errors, status: :unprocessable_entity }
@@ -69,9 +100,12 @@ class SubOrdersController < ApplicationController
   end
 
   private
+    def set_order
+      @order = Order.find_by_uuid(params[:order_id])
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_sub_order
-      logger.debug params
       @sub_order = SubOrder.find_by_order_and_nickname(params[:order_id], params[:id])
     end
 

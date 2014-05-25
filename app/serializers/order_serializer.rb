@@ -1,5 +1,5 @@
 class OrderSerializer < ActiveModel::Serializer
-  attributes :id, :host, :estimated_participants, :shop, :delivery_address
+  attributes :id, :host, :estimated_participants, :shop, :delivery_address, :short_link
 
   def id
     object.uuid
@@ -15,6 +15,10 @@ class OrderSerializer < ActiveModel::Serializer
 
   def delivery_address
     object.address
+  end
+
+  def short_link
+    order_url(object.uuid)
   end
 
 end

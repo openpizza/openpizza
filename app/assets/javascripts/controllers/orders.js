@@ -43,8 +43,8 @@ angular.module('pizza').controller('OrderController', ['$scope', '$location', '$
     };
 
     $scope.send = function(uuid) {
-        console.log(uuid);
         Order.save({id: uuid, nickname: $scope.nickname}, $scope.currentOrder);
+        window.location = '/orders/' + uuid
     };
 
 //    $scope.getProducts = function(shopId) {

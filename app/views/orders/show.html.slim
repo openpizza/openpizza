@@ -1,21 +1,20 @@
 p#notice = notice
 
-p
-  strong Uuid:
-  = @order.uuid
-p
-  strong Shop:
-  = @order.shop_id
-p
-  strong User:
-  = @order.user_id
-p
-  strong Address:
-  = @order.address_id
-p
-  strong Estimated participants:
-  = @order.estimated_participants
-
-= link_to 'Edit', edit_order_path(@order)
-'|
-= link_to 'Back', orders_path
+.container
+  h3.text-center
+    .row
+      .col-md-6.col-md-offset-3
+        p
+          strong Share this link with your mates
+          = text_field_tag :link, root_url[0..-2] + new_order_item_path(@order.uuid), class: 'form-control', disabled: true
+        p 
+          strong You are ordering at
+          p= @order.shop.address.name
+        p
+          strong Delivery Address:
+          p= @order.user.addresses.first.name
+          p= @order.user.addresses.first.street
+          p= "#{@order.user.addresses.first.postcode}, #{@order.user.addresses.first.city}"
+        p
+          strong Estimated participants: 
+          = @order.estimated_participants

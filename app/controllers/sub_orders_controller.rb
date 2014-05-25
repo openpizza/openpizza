@@ -19,6 +19,9 @@ class SubOrdersController < ApplicationController
   # GET /orders/:uuid/items/new
   def new
     @sub_order = SubOrder.new
+    if params[:order_id]
+      @sub_order.order = Order.find(params[:order_id])
+    end
   end
 
   # GET /orders/:uuid/items/1/edit

@@ -1,4 +1,4 @@
-= form_for @sub_order do |f|
+= form_for @sub_order, url: new_order_item_path(@sub_order.order.uuid, @sub_order) do |f|
   - if @sub_order.errors.any?
     #error_explanation
       h2 = "#{pluralize(@sub_order.errors.count, "error")} prohibited this sub_order from being saved:"
@@ -8,11 +8,9 @@
 
   .field
     = f.label :nickname
-    = f.text_field :nickname
-  .field
-    = f.label :order_id
-    = f.number_field :order_id
+    = f.text_field :nickname, class: 'form-control'
   .field
     = f.label :comment
-    = f.text_area :comment
-  .actions = f.submit 'Save'
+    = f.text_area :comment, class: 'form-control'
+  .field
+    .actions = f.submit 'Submit your items to host', class: 'btn btn-success form-control'

@@ -3,5 +3,5 @@
  */
 
 angular.module('pizza').factory('Order', ['$resource', function($resource) {
-    return  $resource('http://openpizza.apiary-mock.com/orders/:id/items/:nickname');
+    return  $resource('/orders/:id/items/:nickname.json');
 }]);

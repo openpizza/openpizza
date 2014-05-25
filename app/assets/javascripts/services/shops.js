@@ -17,7 +17,7 @@
 
 angular.module('pizza').factory('Shops', ['$resource', function($resource) {
     return {
-        all: $resource('http://openpizza.apiary-mock.com/shops?:postcode'),
-        single: $resource('http://openpizza.apiary-mock.com/shops/:shopId')
+        all: $resource('/shops?:postcode.json'),
+        single: $resource('/shops/:shopId.json')
     };
 }]);

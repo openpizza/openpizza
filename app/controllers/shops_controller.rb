@@ -6,7 +6,7 @@ class ShopsController < ApplicationController
   def index
     authorize! :read, Shop
     @shops = Shop.all
-    if params.has_key? :postcode
+    if params.has_key? :postcode and params[:postcode] != ""
       @shops = Shop.by_postcode(params[:postcode])
     end
 

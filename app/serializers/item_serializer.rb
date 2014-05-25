@@ -1,3 +1,11 @@
 class ItemSerializer < ActiveModel::Serializer
-  attributes :id, :sub_order_id, :product_id, :quantity, :price
+  attributes :id, :product, :quantity
+
+  def id
+    object.product.id
+  end
+
+  def product
+    object.product.name
+  end
 end

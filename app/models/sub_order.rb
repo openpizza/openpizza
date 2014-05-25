@@ -1,5 +1,6 @@
 class SubOrder < ActiveRecord::Base
   belongs_to :order
+  has_many :items
 
   validates :order, :nickname, presence: true
 
@@ -17,6 +18,16 @@ class SubOrder < ActiveRecord::Base
       raise ActiveRecord::RecordNotFound
     end
     suborders
+  end
+
+  def products
+    items.map do |item|
+      item
+    end
+  end
+
+  def price
+    items.sum(:price)
   end
 
 end

@@ -1,3 +1,4 @@
 class SubOrderSerializer < ActiveModel::Serializer
-  attributes :id, :nickname, :order_id, :comment
+  attributes :nickname, :comment, :products, :price
+  has_many :products
 end

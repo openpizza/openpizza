@@ -14,3 +14,7 @@
  *= require_tree .
  *= require_self
  */
+
+tr > td {
+  border-top: 0 !important;
+}

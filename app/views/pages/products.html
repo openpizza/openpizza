@@ -1,11 +1,11 @@
-<section data-ng-controller="ShopController">
+<section data-ng-controller="pizzaCtrl">
     <div class="start-page">
         <div class="container">
             <div class="">
                 <div class="row">
                     <div class="col-md-12">
                         <table class="table table-hover">
-                            <tr data-ng-repeat="product in products" class="md-row">
+                            <tr data-ng-repeat="product in shop.products" class="md-row">
                                 <td class="col-md-2 img"><img src="../assets/default.jpg"></td>
                                 <td class="col-md-10 text"><h2>{{product.name}}</h2>
                                     <i class="glyphicon glyphicon-star"></i>

@@ -1,5 +1,23 @@
 .container
   .row
     .col-md-9
+		section(data-ng-controller="OrderController" data-ng-init="getShop(#{@sub_order.order.shop_id})")
+		  h1
+			  | {{shop.name}}
+		  .pre-scrollable
+			  table.table.table-hover
+				  thead
+					  tr
+						  th.col-md-3 Kategorie
+						  th.col-md-4 Produkt
+						  th.col-md-1 Menge
+				  tbody(data-ng-repeat="product in shop.products")
+					  tr
+						  td.col-md-3
+							  | {{product.category}}
+						  td.col-md-4
+							  | {{product.name}}
+						  td.col-md-1
+							  input.form-control.input-small(type="number" min="0" placeholder=0)
     .col-md-3
       == render 'form'

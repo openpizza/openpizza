@@ -1,0 +1,25 @@
+<section data-ng-controller="ShopController">
+    <div class="start-page">
+        <div class="container">
+            <div class="">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table table-hover">
+                            <tr data-ng-repeat="product in products" class="md-row">
+                                <td class="col-md-2 img"><img src="../assets/default.jpg"></td>
+                                <td class="col-md-10 text"><h2>{{product.name}}</h2>
+                                    <i class="glyphicon glyphicon-star"></i>
+                                    <i class="glyphicon glyphicon-star"></i>
+                                    <i class="glyphicon glyphicon-star"></i>
+                                    <i class="glyphicon glyphicon-star"></i>
+                                    <i class="glyphicon glyphicon-star"></i>
+                                </td>
+                                <td class="col-md-2 arrow"><a data-ng-click="select(shop.id)" data-ng-href="/pages/products"><i class="glyphicon glyphicon-chevron-right"></i></a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

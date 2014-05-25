@@ -3,7 +3,4 @@
  */
 'use strict';
 
-angular.module('pizza', ['ngRoute', 'ngResource', 'pizza.system', 'pizza.shops']);
-
-angular.module('pizza.system', []);
-angular.module('pizza.shops', []);
+angular.module('pizza', ['ngRoute', 'ngResource']);

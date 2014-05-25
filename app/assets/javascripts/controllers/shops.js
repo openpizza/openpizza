@@ -3,35 +3,28 @@
  */
 'use strict';
 
-angular.module('pizza.shops').controller('ShopController', ['$scope', '$location', '$resource', 'Shops', function ($scope, $location, $resource, Shops) {
+angular.module('pizza').controller('ShopController', ['$scope', '$location', '$resource', 'Shops', 'Global', function ($scope, $location, $resource, Shops, Global) {
+    console.log(Global);
+    Global.name = 'test';
+
+    $scope.name = Global.name;
+    console.log($scope.name);
 
     $scope.shops = [];
     $scope.postcode = '';
 
     $scope.find = function() {
-
         Shops.query({postcode: $scope.postcode}, function(res) {
             $scope.shops = res;
         });
+    };
 
-//        $scope.shops = [
-//            {
-//                name: 'Pizza Hans1',
-//                rating: 5.0
-//            },
-//            {
-//                name: 'Pizza Hans2',
-//                rating: 4.0
-//            },
-//            {
-//                name: 'Pizza Hans3',
-//                rating: 1.0
-//            },
-//            {
-//                name: 'Pizza Hans4',
-//                rating: 5.0
-//            }
-//        ];
+    $scope.select = function(shop) {
+        Global.shop = shop;
+        //$location.path('/pages/products');
+
+        //$scope.$apply(function() { $location.path("/pages/products"); });
+    };
 
 
 //            Shops.get({serviceId: 123, issue: 'products'}, function(res) {
@@ -45,7 +38,7 @@ angular.module('pizza.shops').controller('ShopController', ['$scope', '$location
 //            });
 
 
-    };
+
 
 
 }]);

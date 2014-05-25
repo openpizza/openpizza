@@ -1,28 +1,28 @@
 class SubOrdersController < ApplicationController
   before_action :set_sub_order, only: [:show, :edit, :update, :destroy]
 
-  # GET /sub_orders
-  # GET /sub_orders.json
+  # GET /orders/:uuid/items
+  # GET /orders/:uuid/items.json
   def index
-    @sub_orders = SubOrder.all
+    @sub_orders = SubOrder.of_order(params[:order_id])
   end
 
-  # GET /sub_orders/1
-  # GET /sub_orders/1.json
+  # GET /orders/:uuid/items/1
+  # GET /orders/:uuid/items/1.json
   def show
   end
 
-  # GET /sub_orders/new
+  # GET /orders/:uuid/items/new
   def new
     @sub_order = SubOrder.new
   end
 
-  # GET /sub_orders/1/edit
+  # GET /orders/:uuid/items/1/edit
   def edit
   end
 
-  # POST /sub_orders
-  # POST /sub_orders.json
+  # POST /orders/:uuid/items
+  # POST /orders/:uuid/items.json
   def create
     @sub_order = SubOrder.new(sub_order_params)
 
@@ -37,8 +37,8 @@ class SubOrdersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /sub_orders/1
-  # PATCH/PUT /sub_orders/1.json
+  # PATCH/PUT /orders/:uuid/items/1
+  # PATCH/PUT /orders/:uuid/items/1.json
   def update
     respond_to do |format|
       if @sub_order.update(sub_order_params)
@@ -51,8 +51,8 @@ class SubOrdersController < ApplicationController
     end
   end
 
-  # DELETE /sub_orders/1
-  # DELETE /sub_orders/1.json
+  # DELETE /orders/:uuid/items/1
+  # DELETE /orders/:uuid/items/1.json
   def destroy
     @sub_order.destroy
     respond_to do |format|
@@ -64,11 +64,12 @@ class SubOrdersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_sub_order
-      @sub_order = SubOrder.find(params[:id])
+      logger.debug params
+      @sub_order = SubOrder.find_by_order_and_nickname(params[:order_id], params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sub_order_params
-      params.require(:sub_order).permit(:nickname, :order_id, :comment)
+      params.require(:sub_order).permit(:nickname, :comment)
     end
 end

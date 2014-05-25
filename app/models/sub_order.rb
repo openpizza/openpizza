@@ -21,7 +21,11 @@ class SubOrder < ActiveRecord::Base
   end
 
   def price
-    items.sum(:price)
+    _price = 0
+    items.each do |item|
+      _price += item.price * item.quantity
+    end
+    _price
   end
 
 end

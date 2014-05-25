@@ -1,5 +1,3 @@
-p#notice = notice
-
 .container
   h3.text-center
     .row
@@ -19,7 +17,11 @@ p#notice = notice
         p
           strong Estimated participants:
           = @order.estimated_participants
-
-
-
-
+    .row
+      table.table
+        - @order.sub_orders.each do |sub_order|
+          - sub_order.items.each do |item|
+            tr
+              td.text-left= sub_order.nickname
+              td.text-left= item.product.name
+              td.text-right= item.quantity

@@ -5847,3 +5847,22 @@ body {
 	height: 96px;
 }
 
+.order-container {
+    margin-top: 20px;
+    height: 600px;
+    overflow:auto;
+}
+
+.nav-pills > li.active > a {
+    margin-top: 10px;
+    background-color: #B44418;
+}
+
+.glyphicon {
+    color: #323232;
+}
+
+.logo-small {
+    height: 60px;
+    margin-top: -20px;
+}

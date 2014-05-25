@@ -1,16 +1,24 @@
+
 = form_for @sub_order, url: new_order_item_path(@sub_order.order.uuid, @sub_order) do |f|
   - if @sub_order.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@sub_order.errors.count, "error")} prohibited this sub_order from being saved:"
-      ul
-        - @sub_order.errors.full_messages.each do |message|
-          li = message
+	#error_explanation
+	  h2 = "#{pluralize(@sub_order.errors.count, "error")} prohibited this sub_order from being saved:"
+	  ul
+		- @sub_order.errors.full_messages.each do |message|
+		  li = message
 
   .field
-    = f.label :nickname
-    = f.text_field :nickname, class: 'form-control'
+	= f.label :nickname
+	= f.text_field :nickname, class: 'form-control'
+  div.pre-scrollable.order-container
+	ul.nav.nav-pills.nav-stacked(data-ng-repeat="product in currentOrder.products")
+		li.active
+			a(href="#")
+				| {{product.name}}
+				span.badge.pull-right
+	  				| {{product.quantity}}
   .field
-    = f.label :comment
-    = f.text_area :comment, class: 'form-control'
+	= f.label :comment
+	= f.text_area :comment, class: 'form-control'
   .field
-    .actions = f.submit 'Submit your items to host', class: 'btn btn-success form-control'
+	.actions = f.submit 'Submit your items to host', class: 'btn btn-success form-control'

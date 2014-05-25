@@ -26,6 +26,4 @@ section(data-ng-controller="OrderController" data-ng-init="getShop(#{@sub_order.
 		.col-md-3
 		  == render 'form'
 
-		  div(data-ng-repeat="product in currentOrder.products")
-			.alert.alert-info
-				| {{product.name}}
+

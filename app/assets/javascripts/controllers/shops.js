@@ -9,7 +9,7 @@ angular.module('pizza').controller('ShopController', ['$scope', '$location', '$r
     $scope.postcode = '';
 
     $scope.find = function() {
-        Shops.query({postcode: $scope.postcode}, function(res) {
+        Shops.all.query({postcode: $scope.postcode}, function(res) {
             $scope.shops = res;
         });
     };

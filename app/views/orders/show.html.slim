@@ -19,3 +19,23 @@ p
 = link_to 'Edit', edit_order_path(@order)
 '|
 = link_to 'Back', orders_path
+
+section(data-ng-controller="OrderController" data-ng-init="getShop(#{@order.shop_id})")
+	.container.col-md-8.col-md-offset-2
+		h1
+			| {{shop.name}}
+	.container.col-md-8.col-md-offset-2.pre-scrollable
+		table.table.table-hover
+			thead
+				tr
+					th.col-md-3 Kategorie
+					th.col-md-4 Produkt
+					th.col-md-1 Menge
+			tbody(data-ng-repeat="product in shop.products")
+				tr
+					td.col-md-3
+						| {{product.category}}
+					td.col-md-4
+						| {{product.name}}
+					td.col-md-1
+						input.form-control.input-small(type="number" min="0" placeholder=0)

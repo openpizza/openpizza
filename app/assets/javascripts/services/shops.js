@@ -11,6 +11,13 @@
 //
 //    });
 //}]);
+//angular.module('pizza').factory('Shops', ['$resource', function($resource) {
+//    return $resource('http://openpizza.apiary-mock.com/shops?:postcode/:shopId');
+//}]);
+
 angular.module('pizza').factory('Shops', ['$resource', function($resource) {
-    return $resource('http://openpizza.apiary-mock.com/shops?:postcode/:shopId');
+    return {
+        all: $resource('http://openpizza.apiary-mock.com/shops?:postcode'),
+        single: $resource('http://openpizza.apiary-mock.com/shops/:shopId')
+    };
 }]);

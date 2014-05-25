@@ -1,5 +1,3 @@
-require 'rqrcode'
-
 class OrdersController < ApplicationController
   # before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
   before_action :set_order, only: [:show, :edit, :update, :destroy]

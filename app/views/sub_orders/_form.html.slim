@@ -9,7 +9,7 @@
 
   .field
 	= f.label :nickname
-	= f.text_field :nickname, class: 'form-control'
+	= f.text_field :nickname, class: 'form-control', 'ng-model' => 'nickname'
   div.pre-scrollable.order-container
 	ul.nav.nav-pills.nav-stacked(data-ng-repeat="product in currentOrder.products")
 		li.active
@@ -18,7 +18,11 @@
 				span.badge.pull-right
 	  				| {{product.quantity}}
   .field
+	= hidden_field_tag :uuid, @sub_order.order.uuid, 'data-ng-model' => 'uuid'
+  .field
 	= f.label :comment
 	= f.text_area :comment, class: 'form-control'
   .field
-	.actions = f.submit 'Submit your items to host', class: 'btn btn-success form-control'
+	//.actions = f.submit 'Submit your items to host', class: 'btn btn-success form-control'
+	a.btn.btn-success.form-control(data-ng-click="send()")
+		| 'Submit your items to host'

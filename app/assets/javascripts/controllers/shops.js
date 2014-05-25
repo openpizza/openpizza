@@ -3,12 +3,7 @@
  */
 'use strict';
 
-angular.module('pizza').controller('ShopController', ['$scope', '$location', '$resource', 'Shops', 'Global', function ($scope, $location, $resource, Shops, Global) {
-    console.log(Global);
-    Global.name = 'test';
-
-    $scope.name = Global.name;
-    console.log($scope.name);
+angular.module('pizza').controller('ShopController', ['$scope', '$location', '$resource', 'Shops', function ($scope, $location, $resource, Shops) {
 
     $scope.shops = [];
     $scope.postcode = '';

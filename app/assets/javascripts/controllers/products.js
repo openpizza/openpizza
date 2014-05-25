@@ -4,11 +4,6 @@
 'use strict';
 
 angular.module('pizza').controller('ProductController', ['$scope', '$location', '$resource', 'Shops', 'Products', 'Global', function ($scope, $location, $resource, Shops, Products, Global) {
-    console.log("Enter ProductController!");
-    console.log(Global);
-    $scope.name = Global.name;
-    console.log($scope.name);
-    console.log(Global);
 
     $scope.products = [{
         name: 'Pizza Salami'
@@ -21,11 +16,11 @@ angular.module('pizza').controller('ProductController', ['$scope', '$location', 
 //        });
 //    };
 
-//    $scope.getProducts = function(shopId) {
-//        Products.query({id: shopId}, function(res) {
-//            $scope.products = res;
-//        });
-//    };
+    $scope.getProducts = function(shopId) {
+        Products.query({id: shopId}, function(res) {
+            $scope.products = res;
+        });
+    };
 
 //    $scope.select = function(id) {
 //        $scope.global.shopId = id;

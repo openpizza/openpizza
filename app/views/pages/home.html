@@ -1,21 +1,21 @@
 <div class="start-page" data-ng-controller="ShopController">
     <div class="container" id="main">
         <div class="start-page-container-search">
-          <div class="row">
-            <div class="col-md-12">
-                <h1>OpenPizza.de</h1>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>OpenPizza.de</h1>
+                </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-                <div class="input-group start-page-search">
-                  <input type="text" class="form-control input-lg" placeholder="Postleitzahl" ng-model="postcode">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="input-group start-page-search">
+                        <input id="search_box" type="text" class="form-control input-lg" placeholder="Postleitzahl" ng-model="postcode">
                   <span class="input-group-btn">
-                    <button class="btn btn-primary btn-lg" type="button" id="buttonSearch" data-ng-click="find()"><i class="glyphicon glyphicon-search"></i></button>
+                    <button class="btn btn-primary btn-lg" type="button" id="button_search" data-ng-click="find()"><i class="glyphicon glyphicon-search"></i></button>
                   </span>
-                </div><!-- /input-group -->
+                    </div><!-- /input-group -->
+                </div>
             </div>
-          </div>
         </div>
         <div class="start-page-container-search-results">
             <div class="row">
@@ -43,22 +43,25 @@
     </div> <!-- /container -->
 </div>
 <script>
+    function addEnterBinding()
+    {
+        $("#search_box").keyup(function(event){
+            if(event.keyCode == 13){
+                $("#button_search").click();
+            }
+        });
+    }
     function addAnimation()
     {
         //padding
         height = $(".start-page").height();
-        $(".start-page-container-search").css("padding-top",Math.floor(height/4)+"px");
-        $("#buttonSearch").click(function()
-            {
-                $(".start-page-container-search").animate({"padding-top":"0px"}, 500, function(){$(".start-page-container-search-results").css("display","block")});
-            });
+        $("#button_search").click(function()
+        {
+            $(".start-page-container-search").animate({"padding-top":"0px"}, 500, function(){$(".start-page-container-search-results").css("display","block")});
+        });
         $(".start-page-container-search-results").css("height",Math.floor(height/2)+"px");
     }
+    addEnterBinding();
     addAnimation();
 </script>
-<div id="footer">
-  <div class="container">
-    <p>Place sticky footer content here.</p>
-  </div>
-</div>
 

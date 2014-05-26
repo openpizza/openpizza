@@ -1,40 +1,26 @@
 Open Pizza
 ==========
 
-Webapp
-------
+Build Status
+------------
 
-- stellt API bereit
-- Zugriff über Webinterface
-- Erlaubt das Erstellen von Accounts, evtl. OAuth
+[![Build Status](https://travis-ci.org/openpizza/openpizza.svg?branch=master)](https://travis-ci.org/openpizza/openpizza)
+[![Code Climate](https://codeclimate.com/github/openpizza/openpizza.png)](https://codeclimate.com/github/openpizza/openpizza)
 
-### API ###
+API Documentation
+-----------------
 
-POST /margherita/orders/
-	- Link wird generiert
-  - Wo wird die Bestellung ausgelöst?
-  - Wie viele Personen nehmen vorraussichtlich an der Bestellung teil?
-  - Lieferadresse
-  - Rechnung? Bezahlweise
+Interactive API Documentation with Mock Server and API Testing.
+http://docs.openpizza.apiary.io/
 
-GET /margherita/orders/UID
-  - gibt alle items aus der Order
-  - Generelle Informationen (die bei POST übermittelt wurden)
+Our Mission
+-----------
 
-POST /margherita/orders/UID
-  - neue Pizza bestellen (über Exemplar ID)
-  - Anzahl
+Pizza is a local product, made by local people. Delivery Service websites
+take insane amounts of rates of the prices of the pizza bakers. Some take
+up to 20
 
+Main Features
+-------------
 
-App
----
-
-1) neue Bestellung / aus Verlauf  
-2) wo will ich bestellen / Anzahl  
-3) Link wird generiert  
-		-> an Kollegen verteilen  
-4) Pizza aus Liste auswählen  
-5) bestätigen  
-6) Übersichtsseite  
-7) Derjenige der die Bestellung angelegt hat bestätigt  
-9) Bestellung wird geliefert ;)  
+- Order Pizza Collaboratively

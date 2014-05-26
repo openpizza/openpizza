@@ -5,31 +5,28 @@
         strong Order Details
       p
         a.button.btn.btn-success.form-control href="#{share_url(@order)}" ORDER FOR MYSELF
-      table.table
-        - @order.sub_orders.each do |sub_order|
-          - sub_order.items.each do |item|
+      - @order.sub_orders.each do |sub_order|
+        h3= sub_order.nickname
+        - sub_order.items.each do |item|
+          table.table
             tr
-              td.text-left= sub_order.nickname
-              td.text-left= item.product.name
               td.text-right= item.quantity
+              td.text-left= item.product.name
+              td.text-right= item.price
     .col-md-4
       .panel.panel-default
         .panel-body
-          h4.text-center
-            p
-              strong Share with your mates
-              = image_tag "https://chart.googleapis.com/chart?cht=qr&chl=#{qrcode_url(@order)}&choe=UTF-8&chs=300x300", style: 'margin-top: 10px;'
-              = text_field_tag :link, share_url(@order), class: 'form-control', onClick: "this.setSelectionRange(0, this.value.length)", style: 'margin-top: 10px; background: rgb(197, 197, 197);'
-            p
-              strong You are ordering at
-              p= @order.shop.address.name
-            p
-              strong Delivery Address:
-              p= @order.user.addresses.first.name
-              p= @order.user.addresses.first.street
-              p= "#{@order.user.addresses.first.postcode}, #{@order.user.addresses.first.city}"
-            p
-              strong Estimated participants: 
-              = @order.estimated_participants
-            p
-              button.btn.btn-success.form-control SEND ORDER
+          p
+            strong Share with your mates
+            = image_tag "https://chart.googleapis.com/chart?cht=qr&chl=#{qrcode_url(@order)}&choe=UTF-8&chs=300x300", style: 'margin-top: 10px;'
+            = text_field_tag :link, share_url(@order), class: 'form-control', onClick: "this.setSelectionRange(0, this.value.length)", style: 'margin-top: 10px; background: rgb(197, 197, 197);'
+          p
+            strong You are ordering at
+            p= @order.shop.address.name
+          p
+            strong Delivery Address:
+            p= @order.user.addresses.first.name
+            p= @order.user.addresses.first.street
+            p= "#{@order.user.addresses.first.postcode}, #{@order.user.addresses.first.city}"
+          p
+            button.btn.btn-success.form-control SEND ORDER

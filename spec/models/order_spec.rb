@@ -28,10 +28,4 @@ describe Order, :type => :model do
     order.estimated_participants = nil
     expect(order).to_not be_valid
   end
-
-  it "is invalid if it does not have a uuid" do
-    order = FactoryGirl.create(:order)
-    order.uuid = nil
-    expect(order).to_not be_valid
-  end
 end

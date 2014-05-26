@@ -4,7 +4,7 @@
       h2.text-left
         strong Order Details
       p
-        a.button.btn.btn-success.form-control href="#{share_url(@order)}" ORDER FOR MYSELF
+        a.button.btn.btn-success.form-control href="#{@share_url}" ORDER FOR MYSELF
       - @order.sub_orders.each do |sub_order|
         h3= sub_order.nickname
         - sub_order.items.each do |item|
@@ -18,8 +18,15 @@
         .panel-body
           p
             strong Share with your mates
-            = image_tag "https://chart.googleapis.com/chart?cht=qr&chl=#{qrcode_url(@order)}&choe=UTF-8&chs=300x300", style: 'margin-top: 10px;'
-            = text_field_tag :link, share_url(@order), class: 'form-control', onClick: "this.setSelectionRange(0, this.value.length)", style: 'margin-top: 10px; background: rgb(197, 197, 197);'
+            table.qrcode
+              - @qr.modules.each_index do |x|
+                tr
+                  - @qr.modules.each_index do |y|
+                    - if @qr.dark?(x,y)
+                      td.black
+                    - else
+                      td.white
+            = text_field_tag :link, @share_url, class: 'form-control', onClick: "this.setSelectionRange(0, this.value.length)", style: 'margin-top: 10px; background: rgb(197, 197, 197);'
           p
             strong You are ordering at
             p= @order.shop.address.name

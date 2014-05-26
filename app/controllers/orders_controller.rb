@@ -11,6 +11,8 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @share_url = share_url(@order)
+    @qr = qrcode(qrcode_url(@order))
     respond_to do |format|
       format.html { render action: 'show' }
       format.json { render json: @order }
@@ -83,5 +85,17 @@ class OrdersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
       params.require(:order).permit(:estimated_participants)
+    end
+
+    def share_url(order)
+      root_url[0..-2] + new_order_item_path(order.uuid)
+    end
+
+    def qrcode_url(order)
+      "openpizza" + root_url[4..-2] + order_path(order.uuid)
+    end
+
+    def qrcode(url)
+      RQRCode::QRCode.new(url, size: 4, level: :l)
     end
 end

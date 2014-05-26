@@ -21,6 +21,7 @@ gem 'devise'
 gem 'rails_admin'
 gem 'cancan'
 gem 'angularjs-rails'
+gem 'rqrcode-with-patches', require: 'rqrcode'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

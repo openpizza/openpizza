@@ -23,6 +23,4 @@
               h3 = current_user.addresses.first.name
               h3 = current_user.addresses.first.street
               h3 = "#{current_user.addresses.first.postcode}, #{current_user.addresses.first.city}"
-          .field
-            p= f.number_field :estimated_participants, class: 'form-control', autofocus: true, placeholder: 'Estimated participants'
           .actions = f.submit 'START ORDER', class: 'btn btn-success form-control'

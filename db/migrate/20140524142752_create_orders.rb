@@ -5,7 +5,6 @@ class CreateOrders < ActiveRecord::Migration
       t.integer :shop_id
       t.integer :user_id
       t.integer :address_id
-      t.integer :estimated_participants
 
       t.timestamps
     end

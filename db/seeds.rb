@@ -27,6 +27,6 @@ product_category = ProductCategory.create name: 'Pizzas', shop: shop
 product = Product.create name: 'Pizza Salami', description: 'Best salami pizza around', price: '9.99', product_category: product_category
 
 #order
-order = Order.create uuid: SecureRandom.uuid, shop: shop, user: customer_user, address: customer_address, estimated_participants: 1
+order = Order.create uuid: SecureRandom.uuid, shop: shop, user: customer_user, address: customer_address
 sub_order = SubOrder.create nickname: 'flower-pot', order: order, comment: 'Cut please!'
 item = Item.create sub_order: sub_order, product: product, quantity: 1, price: '9.99'

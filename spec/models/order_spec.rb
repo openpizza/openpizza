@@ -22,10 +22,4 @@ describe Order, :type => :model do
     order.user = nil
     expect(order).to_not be_valid
   end
-
-  it "is invalid if it does not have an estimated number of participants" do
-    order = FactoryGirl.create(:order)
-    order.estimated_participants = nil
-    expect(order).to_not be_valid
-  end
 end

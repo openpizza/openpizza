@@ -1,8 +1,8 @@
 if Rails.env.production?
-  host = 'www.open-pizza.de'
+  host = 'open-pizza.de'
   email = "noreply@#{host}"
-  RailsBootstrap::Application.config.action_mailer.default_url_options = { :host => host }
-  RailsBootstrap::Application.config.mailer_sender = email
+  OpenPizza::Application.config.action_mailer.default_url_options = { :host => host }
+  OpenPizza::Application.config.mailer_sender = email
   ActionMailer::Base.default_options = { from: email }
   ActionMailer::Base.smtp_settings = {
     port: ENV['SMTP_PORT'],

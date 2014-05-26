@@ -41,7 +41,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to order_path(@order.uuid), notice: 'Order was successfully created.' }
+        format.html { redirect_to order_path(@order.uuid) }
         format.json { render json: @order, status: :created, location: @order }
       else
         format.html { render :new }

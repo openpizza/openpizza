@@ -16,12 +16,13 @@
                 strong You are about to order at
               h3= @order.shop.address.name
               = f.hidden_field :shop, value: @order.shop.id
+          - if user_signed_in? && !current_user.addresses.empty?
+            .field
+              h3
+                strong Delivery address
+              h3 = current_user.addresses.first.name
+              h3 = current_user.addresses.first.street
+              h3 = "#{current_user.addresses.first.postcode}, #{current_user.addresses.first.city}"
           .field
-            h3
-              strong Delivery address
-            h3 = current_user.addresses.first.name
-            h3 = current_user.addresses.first.street
-            h3 = "#{current_user.addresses.first.postcode}, #{current_user.addresses.first.city}"
-          .field
-            p= f.number_field :estimated_participants, class: 'form-control', placeholder: 'Estimated participants'
+            p= f.number_field :estimated_participants, class: 'form-control', autofocus: true, placeholder: 'Estimated participants'
           .actions = f.submit 'START ORDER', class: 'btn btn-success form-control'

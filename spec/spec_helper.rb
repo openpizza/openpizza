@@ -2,7 +2,10 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 
-require 'simplecov' unless ENV['CI']
+unless ENV['CI']
+  require 'simplecov'
+  SimpleCov.start
+end
 
 if ENV['TRAVIS']
   require 'coveralls'

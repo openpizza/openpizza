@@ -80,3 +80,6 @@ pickle-email-*.html
 
 # Vagrant files
 .vagrant
+
+# rails bp html output
+rails_best_practices_output.html

@@ -5,6 +5,7 @@ Build Status
 ------------
 
 [![Build Status](https://travis-ci.org/openpizza/openpizza.svg?branch=master)](https://travis-ci.org/openpizza/openpizza)
+[![Coverage Status](https://coveralls.io/repos/openpizza/openpizza/badge.png?branch=master)](https://coveralls.io/r/openpizza/openpizza?branch=master)
 [![Code Climate](https://codeclimate.com/github/openpizza/openpizza.png)](https://codeclimate.com/github/openpizza/openpizza)
 
 API Documentation

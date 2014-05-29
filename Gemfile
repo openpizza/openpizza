@@ -22,6 +22,8 @@ gem 'rails_admin'
 gem 'cancan'
 gem 'angularjs-rails'
 gem 'rqrcode-with-patches', require: 'rqrcode'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

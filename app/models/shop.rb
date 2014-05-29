@@ -1,4 +1,7 @@
 class Shop < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
   belongs_to :user
   belongs_to :address
   has_many :product_categories
@@ -10,5 +13,10 @@ class Shop < ActiveRecord::Base
 
   def rating
     Random.rand(5.0).round 1
+  end
+
+  def as_indexed_json(options={})
+    self.as_json(
+      include: { address: { only: [:name, :postcode, :street, :city]} })
   end
 end

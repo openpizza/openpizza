@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 20140524145539) do
     t.integer  "shop_id"
     t.integer  "user_id"
     t.integer  "address_id"
-    t.integer  "estimated_participants"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -6,7 +6,6 @@ describe Order, :type => :model do
     expect(order).to respond_to(:shop)
     expect(order).to respond_to(:user)
     expect(order).to respond_to(:address)
-    expect(order).to respond_to(:estimated_participants)
     expect(order).to respond_to(:uuid)
     expect(order).to be_valid
   end

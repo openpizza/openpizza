@@ -1,3 +1,10 @@
+$body-bg: #D1A674;
+
+$navbar-height: 70px;
+$navbar-default-color: #F2F2F2;
+$navbar-default-bg: #B44418;
+$navbar-default-link-color: $navbar-default-color;
+
 // import the CSS framework
 @import "bootstrap";
 
@@ -42,4 +49,26 @@ main {
 section {
   @extend .row;
   margin-top: 20px;
+}
+
+$footer-height: 60px;
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: $footer-height;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: $footer-height;
+  background-color: $navbar-default-bg;
+  color: $navbar-default-color;
+  border-top: 1px solid $navbar-default-border;
+}
+footer p {
+  margin-top: 15px;
 }

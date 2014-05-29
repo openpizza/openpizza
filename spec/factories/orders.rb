@@ -8,6 +8,5 @@ FactoryGirl.define do
     association :shop, factory: :shop
     association :address, factory: :customer_address
     association :user, factory: :customer_user
-    estimated_participants 1
   end
 end

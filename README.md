@@ -47,3 +47,7 @@ migrated the database you can start the webapp and access it on
 `http://192.168.0.10:3000`
 
 	rails server
+
+If you run into an error, make sure postgres and elasticsearch are running
+
+	sudo service postgresql start && sudo service elasticsearch start

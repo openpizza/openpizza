@@ -31,9 +31,12 @@
                                 <i class="glyphicon glyphicon-star"></i>
                             </td>
                             <td class="arrow">
-                                <a ng-click="select(shop)" data-ng-href="/orders/new?shop_id={{shop.id}}">
-                                    <i class="glyphicon glyphicon-chevron-right"></i>
-                                </a>
+                              <%= form_for Order.new, method: :post do |f| %>
+                                <%= f.hidden_field :shop, value: "{{shop.id}}" %>
+                                <%= link_to "#", onclick: "$(this).closest('form').submit()" do %>
+                                  <i class='glyphicon glyphicon-chevron-right'></i>
+                                <%- end %>
+                              <%- end %>
                             </td>
                         </tr>
                     </table>

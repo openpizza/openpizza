@@ -18,18 +18,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  # GET /orders/new
-  def new
-    @order = Order.new
-    if params[:shop_id]
-      @order.shop = Shop.find(params[:shop_id])
-    end
-  end
-
-  # GET /orders/1/edit
-  def edit
-  end
-
   # POST /orders
   # POST /orders.json
   def create

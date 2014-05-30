@@ -19,9 +19,4 @@ table
         td = order.user_id
         td = order.address_id
         td = link_to 'Show', order_path(order.uuid)
-        td = link_to 'Edit', edit_order_path(order)
-        td = link_to 'Destroy', order, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
-= link_to 'New Order', new_order_path
+        td = link_to 'Destroy', order_path(order.uuid), data: {:confirm => 'Are you sure?'}, :method => :delete

@@ -1,6 +1,6 @@
 class SubOrder < ActiveRecord::Base
   belongs_to :order
-  has_many :items
+  has_many :items, dependent: :destroy
 
   validates :order, :nickname, presence: true
 

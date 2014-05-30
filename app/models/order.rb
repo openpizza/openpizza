@@ -5,7 +5,7 @@ class Order < ActiveRecord::Base
   belongs_to :shop
   belongs_to :user
   belongs_to :address
-  has_many :sub_orders
+  has_many :sub_orders, dependent: :destroy
 
   validates :shop, :user, :uuid, presence: true
 

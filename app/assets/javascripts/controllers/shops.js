@@ -6,10 +6,10 @@
 angular.module('pizza').controller('ShopController', ['$scope', '$location', '$resource', 'Shops', function ($scope, $location, $resource, Shops) {
 
     $scope.shops = [];
-    $scope.postcode = '';
+    $scope.search_text = '';
 
     $scope.find = function() {
-        Shops.all.query({postcode: $scope.postcode}, function(res) {
+        Shops.all.query({search_text: $scope.search_text}, function(res) {
             $scope.shops = res;
         });
     };

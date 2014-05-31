@@ -4,11 +4,9 @@ class ShopsController < ApplicationController
   # GET /shops
   # GET /shops.json
   def index
-    authorize! :read, Shop
-    @shops = Shop.all
-    if params.has_key? :postcode and params[:postcode] != ""
-      @shops = Shop.by_postcode(params[:postcode])
-    end
+    @q = params[:q]
+    @q ||= ""
+    @shops = Shop.search(@q).results.map { |r| r._source }
 
     respond_to do |format|
       format.html { render action: 'index' }
@@ -19,7 +17,6 @@ class ShopsController < ApplicationController
   # GET /shops/1
   # GET /shops/1.json
   def show
-    authorize! :read, Shop
     respond_to do |format|
       format.html { render action: 'show' }
       format.json { render json: @shop }

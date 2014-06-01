@@ -27,3 +27,47 @@ tr > td {
 .start-page-container-search {
   padding-top: 100px;
 }
+
+table#shops-table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+table#shops-table tr {
+  border-bottom: 4px solid #973914;
+}
+
+table#shops-table td {
+  background-color: #F1B42F;
+}
+
+table#shops-table img,
+table#shops-table td.text,
+table#shops-table td.arrow {
+  height: 100px;
+}
+
+table#shops-table img {
+  width: 100px;
+}
+
+table#shops-table td.arrow {
+  font-size: 50px;
+  vertical-align: middle;
+  text-align: right;
+  padding-right: 15px;
+}
+
+table#shops-table td.img {
+  text-align: left;
+  width: 100px;
+  height: 100px;
+}
+
+table#shops-table td.text {
+  padding-left: 15px;
+}
+
+p.shop-name {
+  font-size: 32px;
+}

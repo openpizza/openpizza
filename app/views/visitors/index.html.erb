@@ -20,15 +20,20 @@
         <div class="start-page-container-search-results">
             <div class="row">
                 <div class="col-md-12">
-                    <table>
+                    <table id="shops-table">
                         <tr data-ng-repeat="shop in shops">
                             <td class="img"><img src="../assets/default.jpg"></td>
-                            <td class="text"><h2>{{shop.name}}</h2>
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
+                            <td class="text">
+                              <p class="shop-name">
+                                <%= link_to '{{shop.name}}', '#', onclick: "$(this).closest('form').submit()" %>
+                              </p>
+                                <p>
+                                  <i class="glyphicon glyphicon-star"></i>
+                                  <i class="glyphicon glyphicon-star"></i>
+                                  <i class="glyphicon glyphicon-star"></i>
+                                  <i class="glyphicon glyphicon-star"></i>
+                                  <i class="glyphicon glyphicon-star"></i>
+                                </p>
                             </td>
                             <td class="arrow">
                               <%= form_for Order.new, method: :post do |f| %>

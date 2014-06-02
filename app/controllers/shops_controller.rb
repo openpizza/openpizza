@@ -6,7 +6,8 @@ class ShopsController < ApplicationController
   def index
     @q = params[:q]
     @q ||= ""
-    @shops = Shop.search(@q).results.map { |r| r._source }
+    @shops = Shop.search(@q).records
+
 
     respond_to do |format|
       format.html { render action: 'index' }

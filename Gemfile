@@ -24,19 +24,18 @@ gem 'angularjs-rails'
 gem 'rqrcode-with-patches', require: 'rqrcode'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem 'unicorn'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'rails_best_practices'
+  gem 'foreman'
 end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails', '>= 3.0.0.beta2'
-end
-group :production do
-  gem 'unicorn'
 end
 group :test do
   gem 'capybara'

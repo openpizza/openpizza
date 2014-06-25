@@ -30,10 +30,11 @@
           p
             strong You are ordering at
             p= @order.shop.address.name
-          p
-            strong Delivery Address:
-            p= @order.user.addresses.first.name
-            p= @order.user.addresses.first.street
-            p= "#{@order.user.addresses.first.postcode}, #{@order.user.addresses.first.city}"
+          - if @order.user
+            p
+              strong Delivery Address:
+              p= @order.user.addresses.first.name
+              p= @order.user.addresses.first.street
+              p= "#{@order.user.addresses.first.postcode}, #{@order.user.addresses.first.city}"
           p
             button.btn.btn-success.form-control SEND ORDER

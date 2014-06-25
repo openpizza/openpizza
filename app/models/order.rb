@@ -7,7 +7,7 @@ class Order < ActiveRecord::Base
   belongs_to :address
   has_many :sub_orders, dependent: :destroy
 
-  validates :shop, :user, :uuid, presence: true
+  validates :shop, :uuid, presence: true
 
   def set_uuid
     self.uuid = SecureRandom.uuid

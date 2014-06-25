@@ -25,7 +25,7 @@
                           <td class="img"><img src="../assets/default.jpg"></td>
                           <td class="text">
                             <%= form_for Order.new, method: :post do |f| %>
-                              <%= f.hidden_field :shop, value: '{{shop.id}}' %>
+                              <%= f.hidden_field :shop_id, value: '{{shop.id}}' %>
                               <p class="shop-name">
                                 <%= link_to '{{shop.name}}', '#', onclick: "$(this).closest('form').submit()" %>
                               </p>

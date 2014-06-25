@@ -22,11 +22,10 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
-    @order.user = User.first
-    if params[:order][:shop]
-      params[:shop] = params[:order][:shop]
+
+    if user_signed_in?
+      @order.user = current_user
     end
-    @order.shop = Shop.where(id: params[:shop]).first
 
     respond_to do |format|
       if @order.save
@@ -71,7 +70,7 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit()
+      params.require(:order).permit(:shop_id)
     end
 
     def share_url(order)

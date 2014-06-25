@@ -19,6 +19,6 @@ describe Order, :type => :model do
   it "is invalid if it does not have a user" do
     order = FactoryGirl.create(:order)
     order.user = nil
-    expect(order).to_not be_valid
+    expect(order).to be_valid
   end
 end

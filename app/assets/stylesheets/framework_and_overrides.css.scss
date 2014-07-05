@@ -5,6 +5,11 @@ $navbar-default-color: #F2F2F2;
 $navbar-default-bg: #B44418;
 $navbar-default-link-color: $navbar-default-color;
 
+$brand-primary: #CC3300;
+$brand-info: #FFCC00;
+$input-border-focus: #FFCC00;
+$link-color: $brand-info;
+
 // import the CSS framework
 @import "bootstrap";
 
